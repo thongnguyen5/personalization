@@ -20,3 +20,6 @@ sudo mv .zshrc_momo ~/
 echo "Setup git global config"
 bash ./gitconfig.sh
 
+echo "Setup bazel config"
+bash ./bazelconfig.sh
+
