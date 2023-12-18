@@ -1,0 +1,40 @@
+# Git Alias
+alias gs='git status'
+alias gl='git lg'
+alias gc='git checkout '
+alias gp='git pull --rebase origin master'
+alias ga='git add .'
+alias gcm='git commit -m '
+alias gamend='git commit --amend'
+alias gr='git review long.pham3'
+alias gall='git add . && gamend && gr'
+alias gb='git branch'
+alias gmaster='gc master && git pull --rebase'
+alias gm='gmaster'
+alias rebase='git rebase master'
+alias gam='gamend'
+
+# kubectl alias
+alias k='kubectl'
+#alias kc='k'
+alias kc='kubecolor --force-colors'
+#alias kc='kubectl'
+
+function kctx() {kc config current-context}
+function kdev() { kc config use-context gke_momovn-dev_us-central1-c_services-dev-us  }
+function kprod() { kc config use-context gke_momovn-prod_asia-southeast1_services-prod-sg  }
+function kpods() { kc get pods -n "$1" }
+function klogs() { kc logs -f "$2" "$3" -n "$1" }
+function klg() {k logs -f -n "$1" --selector app="$2" --tail 100 --max-log-requests 10}
+function kconfs() {kc get configmaps -n "$1"}
+function keditconf() {kc edit configmap "$1" -n "$2"}
+function krestart() {kc rollout restart deployment "$2" -n "$1"}
+function kdeployments() {kc get deployment -n "$1"}
+function keditdeployment() {kc edit deployment "$1" -n "$2"}
+function ktop() {kc top pod -n "$1" }
+function kmonitor() {kc run --rm -it -n "$1" --image alpine thong-nguyen-monitor-pod}
+
+# Bazel
+alias bb='bazel build'
+alias bs='bazel shutdown'
+alias bt='bazel test'
