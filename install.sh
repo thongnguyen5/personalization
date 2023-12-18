@@ -2,7 +2,8 @@
 
 echo "Install zsh"
 yes Yes | sudo apt install zsh
-chsh -s $(which zsh)
+# permission issue
+#chsh -s $(which zsh)
 
 echo "Install oh-my-zsh"
 yes Yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
